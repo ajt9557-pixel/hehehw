@@ -54,7 +54,7 @@ function showMessage() {
 
                         setTimeout(() => {
                             typing(() => {
-                                addMessage("I like you a lot and ahhh anytime na kinakausap kita iss napapangiti moko and basata simula ng nakausap kita i never been happy like this bilis ko maattach noh btw i like you because you do  make me happy and your making  my life better just by talking to you and i wanted to know u even more better and ur not just pretty and cute i love ur personality kahit d pa kita gaano kilala and im osososos nervous my ghad and I hope you like me back but if you dont its okay i just wanted to tell you how i feel and i hope we can still be friends no matter what i undqerstand if you dont like me back but i just wanted to be honest with you and tell you how i feel and i hope we can still be friends no matter what. So  what do you think?");
+                                addMessage("I like you a lot and ahhh anytime na kinakausap kita iss napapangiti moko well kahit hindi tayo gaano naguusap hehe and basata simula ng nakausap kita i never been happy like this bilis ko maattach noh btw i like you because you do  make me happy and your making  my life better just by talking to you and i wanted to know u even more better and ur not just pretty and cute i love ur personality kahit d pa kita gaano kilala and im osososos nervous my ghad and I hope you like me back but if you dont its okay i just wanted to tell you how i feel hehehe . So  what do you think?");
                                 choices.classList.remove("hidden");
                             });
                         }, 1000);
