@@ -54,11 +54,10 @@ function showMessage() {
     chat.innerHTML = "";
 
     typingEffect(chat, "Hey...", 50, () => {
-        typingEffect(chat, "I’ve been wanting to tell you something", 40, () => {
+        typingEffect(chat, " so may gusto lng ako na sabihin hehehe ", 40, () => {
             typingEffect(chat, "I like you 💖", 40, () => {
                 typingEffect(chat,
-                    "I just feel happy whenever I talk to you... I hope you feel the same 🥺 I like you a lot and ahhh anytime na kinakausap kita iss napapangiti moko well kahit hindi tayo gaano naguusap hehe and basata simula ng nakausap kita i never been happy like this bilis ko maattach noh btw i like you because you do make me happy and your making my life better just by talking to you and i wanted to know u even more better and ur not just pretty and cute i love ur personality kahit d pa kita gaano kilala and im osososos nervous my ghad and I hope you like me back but if you dont its okay i just wanted to tell you how i feel hehehe . So what do you think?",
-                    25,
+                    "I like you a lot and I just want to be honest with you...Simula nung nakausap kita, sobrang saya.Ang bilis ko ma-attach 😭You make me happy just by talking to me."
                     () => choices.classList.remove("hidden")
                 );
             });
