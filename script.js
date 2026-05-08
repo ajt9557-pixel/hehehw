@@ -57,35 +57,35 @@ function showMessage() {
 
             setTimeout(() => {
                 typing(() => {
-                    addMessage("I’ve been wanting to tell you something", 40, () => {
+                    addMessage("I’ve  been  wanting  to  tell  you  something ", 40, () => {
 
                         setTimeout(() => {
                             typing(() => {
-                                addMessage("I like you a lot 💖", 40, () => {
+                                addMessage("I  like  you  a  lot  💖 ", 40, () => {
 
                                     setTimeout(() => {
                                         typing(() => {
-                                            addMessage(`I like you a lot and ahhh anytime na kinakausap kita napapangiti moko 😭
+                                            addMessage(`I  like  you  a  lot  and  ahhh  anytime  na  kinakausap  kita  napapangiti  moko  😭
 
-kahit hindi tayo gaano naguusap hehe...
+ kahit  hindi  tayo  gaano  naguusap  hehe...
+ 
+ Simula  nung  nakausap  kita,  I’ve  never  been  this  happy.
+ Ang  bilis  ko  ma-attach  noh  😭
 
-Simula nung nakausap kita, I’ve never been this happy.
-Ang bilis ko ma-attach noh 😭
+I  like  you  because  you  make  me  happy,
+ and  you  make  my  life  better  just  by  talking  to  you.
 
-I like you because you make me happy,
-and you make my life better just by talking to you.
+ I  want  to  know  you  more...
+ and  you're  not  just  pretty  and  cute,
+ I  love  your  personality  💖
 
-I want to know you more...
-and you're not just pretty and cute,
-I love your personality 💖
+ Kinakabahan  ako  sobra  😭
+ but  I  hope  you  like  me  back...
 
-Kinakabahan ako sobra 😭
-but I hope you like me back...
+ If  not,  okay  lang  🥺
+ I  just  wanted  to  tell  you  how  I  feel.
 
-If not, okay lang 🥺
-I just wanted to tell you how I feel.
-
-So... what do you think?`, 20, () => {
+ So...  what  do  you  think?` , 20, () => {
                                                 choices.classList.remove("hidden");
                                             });
                                         });
