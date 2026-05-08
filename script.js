@@ -1,97 +1,181 @@
-// 💖 Hearts
+// 💖 Floating hearts
+
 function createHeart() {
+
     const heart = document.createElement("div");
+
     heart.classList.add("heart");
+
     heart.innerText = "💖";
 
+
+
     heart.style.left = Math.random() * 100 + "vw";
+
     heart.style.fontSize = (Math.random() * 20 + 10) + "px";
 
-    document.querySelector(".hearts")?.appendChild(heart);
+
+
+    document.querySelector(".hearts").appendChild(heart);
+
+
 
     setTimeout(() => heart.remove(), 5000);
+
 }
+
 setInterval(createHeart, 300);
 
 
-// 💬 Typing system
-function typingEffect(chat, text, speed = 35, callback) {
-    const typing = document.createElement("div");
-    typing.className = "bubble typing";
-    typing.innerText = "Typing...";
 
-    chat.appendChild(typing);
-    chat.scrollTop = chat.scrollHeight;
+// 💬 Chat system
 
-    setTimeout(() => {
-        typing.remove();
-
-        const msg = document.createElement("div");
-        msg.className = "bubble me";
-        chat.appendChild(msg);
-
-        let i = 0;
-
-        function type() {
-            if (i < text.length) {
-                msg.innerText += text[i++];
-                chat.scrollTop = chat.scrollHeight;
-                setTimeout(type, speed);
-            } else if (callback) callback();
-        }
-
-        type();
-    }, 1200);
-}
-
-
-// 💌 Main chat
 function showMessage() {
+
     const chat = document.getElementById("chat");
+
     const choices = document.getElementById("choices");
 
+
+
     chat.classList.remove("hidden");
+
     chat.innerHTML = "";
 
-    typingEffect(chat, "Hey...", 50, () => {
-        typingEffect(chat, " so may gusto lng ako na sabihin hehehe ", 40, () => {
-            typingEffect(chat, "I like you 💖", 40, () => {
-                typingEffect(chat,
-                    "I like you a lot and I just want to be honest with you...Simula nung nakausap kita, sobrang saya.Ang bilis ko ma-attach 😭You make me happy just by talking to me."
-                    () => choices.classList.remove("hidden")
-                );
+
+
+    function addMessage(text) {
+
+        const msg = document.createElement("div");
+
+        msg.classList.add("bubble", "me");
+
+        msg.innerText = text;
+
+        chat.appendChild(msg);
+
+        chat.scrollTop = chat.scrollHeight;
+
+    }
+
+
+
+    function typing(callback) {
+
+        const t = document.createElement("div");
+
+        t.classList.add("bubble", "typing");
+
+        t.innerText = "Typing...";
+
+        chat.appendChild(t);
+
+
+
+        setTimeout(() => {
+
+            t.remove();
+
+            callback();
+
+        }, 1500);
+
+    }
+
+
+
+    typing(() => {
+
+        addMessage("Hey...");
+
+
+
+        setTimeout(() => {
+
+            typing(() => {
+
+                addMessage("I’ve been wanting to tell you something");
+
+
+
+                setTimeout(() => {
+
+                    typing(() => {
+
+                        addMessage("I like you a lot💖");
+
+
+
+                        setTimeout(() => {
+
+                            typing(() => {
+
+                                addMessage("I like you a lot and ahhh anytime na kinakausap kita iss napapangiti moko well kahit hindi tayo gaano naguusap hehe and basata simula ng nakausap kita i never been happy like this bilis ko maattach noh btw i like you because you do  make me happy and your making  my life better just by talking to you and i wanted to know u even more better and ur not just pretty and cute i love ur personality kahit d pa kita gaano kilala and im osososos nervous my ghad and I hope you like me back but if you dont its okay i just wanted to tell you how i feel hehehe . So  what do you think?");
+
+                                choices.classList.remove("hidden");
+
+                            });
+
+                        }, 1000);
+
+                    });
+
+                }, 1000);
+
             });
-        });
+
+        }, 800);
+
     });
+
 }
 
 
-// 💀 Moving NO button
-window.addEventListener("DOMContentLoaded", () => {
-    const noBtn = document.getElementById("noBtn");
 
-    document.addEventListener("mousemove", (e) => {
-        if (!noBtn) return;
+// 😂 Moving NO button
 
-        const rect = noBtn.getBoundingClientRect();
-        const dx = e.clientX - rect.left;
-        const dy = e.clientY - rect.top;
+const noBtn = document.getElementById("noBtn");
 
-        if (Math.sqrt(dx * dx + dy * dy) < 80) {
-            noBtn.style.position = "relative";
-            noBtn.style.transform = `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px)`;
-        }
-    });
+
+
+document.addEventListener("mouseover", function(e) {
+
+    if (e.target === noBtn) {
+
+        const x = Math.random() * 200 - 100;
+
+        const y = Math.random() * 200 - 100;
+
+
+
+        noBtn.style.position = "relative";
+
+        noBtn.style.left = x + "px";
+
+        noBtn.style.top = y + "px";
+
+    }
+
 });
 
 
-// 💖 Buttons
+
+// Responses
+
 function yes() {
+
     document.getElementById("response").innerText =
-        "You just made me the happiest person alive I WILL MAKE YOU THE HAPPIEST GIRL AND I WILL TREAT YOU BETTER THAN ANYONE AND I WILL CHERISH YOU AND MAKE YOU SMILE ALWAYS💖";
+
+        "You just made me the happiest person alive I WILL MAKE YOU THE HAPPIEST GIRL AND I WILL TREAT YOU BETTER THAN ANYONE AND I WILL CHERISH YOU AND MAKE YOU SMILE ALWAYS 💖🥺";
+
 }
 
+
+
 function no() {
+
     document.getElementById("response").innerText =
+
         "You caught me 😭 but I still like you!";
+
 }
