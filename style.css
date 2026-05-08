@@ -85,6 +85,7 @@ button:hover {
 .heart {
     position: absolute;
     bottom: -10px;
+
     color: #ff4d6d;
     animation: floatUp 5s linear infinite;
 }
@@ -100,4 +101,11 @@ button:hover {
     margin-top: 10px;
     font-weight: bold;
     color: #ff4d6d;
+}
+.bubble {
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 80%;
+    line-height: 1.4;
 }
