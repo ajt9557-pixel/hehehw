@@ -21,47 +21,100 @@ function showMessage() {
     chat.classList.remove("hidden");
     chat.innerHTML = "";
 
-    function addMessage(text) {
+    // ✨ Typing animation (letter by letter)
+    function addMessage(text, speed = 30, callback = null) {
         const msg = document.createElement("div");
         msg.classList.add("bubble", "me");
-        msg.innerText = text;
         chat.appendChild(msg);
-        chat.scrollTop = chat.scrollHeight;
+
+        let i = 0;
+
+        function type() {
+            if (i < text.length) {
+                msg.innerText += text.charAt(i);
+                i++;
+                chat.scrollTop = chat.scrollHeight;
+                setTimeout(type, speed);
+            } else {
+                if (callback) callback();
+            }
+        }
+
+        type();
     }
 
+    // 💭 "Typing..." with animated dots
     function typing(callback) {
         const t = document.createElement("div");
         t.classList.add("bubble", "typing");
-        t.innerText = "Typing...";
+        t.innerText = "Typing";
         chat.appendChild(t);
 
+        let dots = 0;
+        const interval = setInterval(() => {
+            dots = (dots + 1) % 4;
+            t.innerText = "Typing" + ".".repeat(dots);
+        }, 300);
+
         setTimeout(() => {
+            clearInterval(interval);
             t.remove();
             callback();
         }, 1500);
     }
 
+    // 💌 Message flow
     typing(() => {
-        addMessage("Hey...");
+        addMessage("Hey...", 50, () => {
 
-        setTimeout(() => {
-            typing(() => {
-                addMessage("I’ve been wanting to tell you something");
-
-                setTimeout(() => {
-                    typing(() => {
-                        addMessage("I like you a lot💖");
+            setTimeout(() => {
+                typing(() => {
+                    addMessage("I’ve been wanting to tell you something", 40, () => {
 
                         setTimeout(() => {
                             typing(() => {
-                                addMessage("I like you a lot and ahhh anytime na kinakausap kita iss napapangiti moko well kahit hindi tayo gaano naguusap hehe and basata simula ng nakausap kita i never been happy like this bilis ko maattach noh btw i like you because you do  make me happy and your making  my life better just by talking to you and i wanted to know u even more better and ur not just pretty and cute i love ur personality kahit d pa kita gaano kilala and im osososos nervous my ghad and I hope you like me back but if you dont its okay i just wanted to tell you how i feel hehehe . So  what do you think?");
-                                choices.classList.remove("hidden");
+                                addMessage("I like you a lot 💖", 40, () => {
+
+                                    setTimeout(() => {
+                                        typing(() => {
+                                            addMessage(
+`I like you a lot and ahhh anytime na kinakausap kita napapangiti moko 😭 
+kahit hindi tayo gaano naguusap hehe...
+
+Simula nung nakausap kita, I’ve never been this happy.
+Ang bilis ko ma-attach noh 😭
+
+I like you because you make me happy,
+and you make my life better just by talking to you.
+
+I want to know you more...
+and you're not just pretty and cute,
+I love your personality 💖
+
+Kinakabahan ako sobra 😭
+but I hope you like me back...
+
+If not, okay lang 🥺
+I just wanted to tell you how I feel.
+
+So... what do you think?`,
+                                            20,
+                                            () => {
+                                                choices.classList.remove("hidden");
+                                            }
+                                            );
+                                        });
+                                    }, 1000);
+
+                                });
                             });
                         }, 1000);
+
                     });
-                }, 1000);
-            });
-        }, 800);
+                });
+            }, 800);
+
+        });
     });
 }
 
@@ -79,10 +132,10 @@ document.addEventListener("mouseover", function(e) {
     }
 });
 
-// Responses
+// 💖 Responses
 function yes() {
     document.getElementById("response").innerText =
-        "You just made me the happiest person alive I WILL MAKE YOU THE HAPPIEST GIRL AND I WILL TREAT YOU BETTER THAN ANYONE AND I WILL CHERISH YOU AND MAKE YOU SMILE ALWAYS 💖🥺";
+        "You just made me the happiest person alive 😭💖 I will treat you right and always make you smile!";
 }
 
 function no() {
